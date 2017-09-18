@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.typeleaf.org">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>로그인</title>
+
+  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; }
+    body { font-family: 'Roboto', sans-serif;}
+    li { list-style: none; }
+    a { text-decoration: none; }
+    img { border: 0; }
+    body {
+      min-width: 320px;
+    }
+    .global_header {
+      border-bottom: 3px solid #d9d9d9 ;
+      height: 100px;
+      position: relative;
+      background-color: #ecf0f1 ;
+    }
+    .global_header .logo {
+      display: block;
+      text-align: center;
+      height: 100px;
+    }
+    .global_header .logo img {
+      width: 180px;
+    }
+    .global_header #search {
+      display: inline-block;
+      position: absolute;
+      right: 10px;
+    }
+
+    .global_header #login {
+      position: absolute;
+      right: 12px; bottom: 2px;
+      color: #1abc9c ;
+      padding: 10px;
+      border: 0;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+    .global_header #login:active {
+      color: #087f5b ;
+      font-size: 1.2rem;
+      right: 10px; bottom: 0;
+    }
+    .global_header .bottom_header {
+      height: 35px;
+      border-bottom: 3px solid #d9d9d9 ;
+    }
+    .global_header .bottom_header #hamburger {
+      display: inline-block;
+      margin-left: 5px; margin-top: 3px;
+      width: 30px; height: 30px;
+      font-size: 30px;
+      color: #1abc9c ;
+    }
+    .global_header .bottom_header #search {
+      font-size: 30px; color: #2c3e50 ;
+      display: inline-block;
+      margin-top: 5px; margin-right: 3px;
+    }
+    .global_header .bottom_header .menu_category {
+      display: none;
+    }
+    @media screen and (min-width: 768px) {
+      .global_header .bottom_header .menu_category {
+        display: block;
+        margin-left: 50px; margin-right: 50px;
+        position: relative; bottom: 34px;
+        text-align: center;
+      }
+
+      .global_header .bottom_header .menu_category li {
+        display: inline-block;
+        margin: 0 3px;
+      }
+      .global_header .bottom_header .menu_category li a {
+        display: inline-block;
+        padding: 6px 20px;
+        color: #212529 ;
+      }
+    }
+    #side_menu {
+      width: 0; height:100%;
+      overflow-x: hidden;
+      transition: width .3s;
+      position: fixed; top: 0; left: 0;
+      z-index: 1;
+      background-color: #1abc9c ;
+    }
+    #side_menu .exit_wrap {
+      position: relative;
+    }
+    #side_menu .logo_wrap {
+      background-color: #f8f8f8 ;
+    }
+    #side_menu .logo_wrap img {
+      width: 100%;
+    }
+    #side_menu #side_exit {
+      color: #1abc9c ;
+      position: absolute;
+      font-size: 1.4rem;
+      top: 5px; right: 10px;
+    }
+    #side_menu ul {
+
+    }
+    @media screen and (min-width: 768px) {
+      #side_menu ul .menu_category_mobile {
+        display: none;
+      }
+    }
+
+    #side_menu ul li {
+      text-align: center;
+      font-weight: bold;
+      margin: 5px 0;
+    }
+    #side_menu ul li a {
+      display: block;
+      padding: 10px 0;
+      color: #ecf0f1 ;
+    }
+
+
+  </style>
+</head>
+<body>
+  <div id="side_menu">
+    <div class="exit_wrap">
+      <a id="side_exit" href="#">&#x2716;</a>
+    </div>
+    <div class="logo_wrap">
+      <img src="side_logo.png" alt="logo"/>
+    </div>
+    <ul>
+      <div class="menu_category_mobile">
+        <li><a href="#">게임</a></li>
+        <li><a href="#">라이프 스타일</a></li>
+        <li><a href="#">미디어</a></li>
+        <li><a href="#">교육</a></li>
+        <li><a href="#">여행</a></li>
+        <li><a href="#">비즈니스</a></li>
+        <li><a href="#">기타</a></li>
+      </div>
+      <li><a href="#">마이 페이지</a></li>
+      <li><a href="#">명예의 전당</a></li>
+      <li><a href="#">빅데이터 차트</a></li>
+    </ul>
+  </div>
+  <header class="global_header">
+    <div class="logo">
+      <img src="logo.png" alt="logo"/>
+    </div>
+    <a id="login" th:href="@{/login}">login</a>
+    <div class="bottom_header">
+      <i id="hamburger" class="material-icons">reorder</i>
+      <i id="search" class="material-icons">search</i>
+      <ul class="menu_category">
+        <li><a href="#">게임</a></li>
+        <li><a href="#">라이프 스타일</a></li>
+        <li><a href="#">미디어</a></li>
+        <li><a href="#">교육</a></li>
+        <li><a href="#">여행</a></li>
+        <li><a href="#">비즈니스</a></li>
+        <li><a href="#">기타</a></li>
+      </ul>
+    </div>
+  </header>
+  <div class="login form">
+    <form th:action="@{/loginProcessing}" method="post">
+      <img class="login logo" src="side_logo.png"/>
+      <div th:if="${param.error}">
+        잘못된 아이디나 암호입니다.
+      </div>
+      <div class="login box">
+        <input class="login input" type="text" name="username" placeholder="eMail ID" required="required"/>
+      </div>
+      <div class="login box">
+        <input class="login input" type="password" name="password" placeholder="Password" required="required"/>
+      </div>
+      <button class="login" type="submit"><i class="fa fa-check fa-2x" aria-hidden="true"></i></button>
+    </form>
+    <div class="register link box">
+      <a class="register" th:href="@{/register}">회원 가입</a>
+    </div>
+  </div>
+
+
+  <script type="text/javascript">
+  const loginButton = document.getElementById('login');
+  const searchButton = document.getElementById('search');
+  searchButton.addEventListener('click', (e) => {
+    console.log(e.target);
+  })
+  const sideMenu = document.getElementById('side_menu');
+
+  const sideExitButton = document.getElementById('side_exit');
+  sideExitButton.addEventListener('click', (e) => {
+    sideMenu.style.width = '0';
+  });
+
+  const menuButton = document.getElementById('hamburger');
+  menuButton.addEventListener('click', (e) => {
+    sideMenu.style.width = '250px';
+  });
+  </script>
+</body>
+</html>
