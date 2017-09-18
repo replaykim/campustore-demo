@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Campustore</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto"
+      rel="stylesheet" />
+  <link href="stylesheet/css/common.css" rel="stylesheet" />
+
+</head>
+<body>
+  <div id="side_menu">
+    <div class="exit_wrap">
+      <a id="side_exit" href="#">&#x2716;</a>
+    </div>
+    <div class="logo_wrap">
+      <img src="img/logo/side_logo.png" />
+    </div>
+    <ul>
+      <div class="menu_category_mobile">
+        <li><a href="#">게임</a></li>
+        <li><a href="#">라이프 스타일</a></li>
+        <li><a href="#">미디어</a></li>
+        <li><a href="#">교육</a></li>
+        <li><a href="#">여행</a></li>
+        <li><a href="#">비즈니스</a></li>
+        <li><a href="#">기타</a></li>
+      </div>
+      <li><a href="#">마이 페이지</a></li>
+      <li><a href="#">명예의 전당</a></li>
+      <li><a href="#">빅데이터 차트</a></li>
+    </ul>
+  </div>
+  <div class="wrap">
+    <header class="global_header">
+      <div class="logo">
+        <img src="img/logo/logo.png" alt="" />
+      </div>
+      <a id="login" href="#">login</a>
+      <div class="bottom_header">
+        <i id="hamburger" class="material-icons">reorder</i>
+        <i id="search" class="material-icons">search</i>
+        <ul class="menu_category">
+          <li><a href="#">게임</a></li>
+          <li><a href="#">라이프 스타일</a></li>
+          <li><a href="#">미디어</a></li>
+          <li><a href="#">교육</a></li>
+          <li><a href="#">여행</a></li>
+          <li><a href="#">비즈니스</a></li>
+          <li><a href="#">기타</a></li>
+        </ul>
+      </div>
+    </header>
+
+
+
+
+
+
+
+
+    <main>
+      <section class="contents">
+        <article class="ranking">
+          <nav>
+            <ul  class="sortedBy">
+              <li>추천순</li>
+              <li>펀딩순</li>
+              <li>조회순</li>
+            </ul>
+          </nav>
+          <div class="ranking_body">
+            <div class="item">
+              <img src="img/sample/kitten.jpg" />
+              <div class="description">
+                <h1>도사폰 (만세력 역학도구)</h1>
+                <div class="category">생산성</div>
+                <div class="star">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <div class="price">35,000원</div>
+              </div>
+            </div>
+            <div class="item">
+              <img src="img/sample/what.jpeg" />
+              <div class="description">
+                <h1>제목입니다.</h1>
+                <div class="category">폰꾸미기/런쳐</div>
+                <div class="star">&#9733;&#9733;</div>
+                <div class="price">5,000원</div>
+              </div>
+            </div>
+            <div class="item">
+              <img src="img/sample/kitten.jpg" />
+              <div class="description">
+                <h1>Aa사랑스러워한국어 FlipFont</h1>
+                <div class="category">폰꾸미기/런쳐</div>
+                <div class="star">&#9733;&#9733;</div>
+                <div class="price">5,000원</div>
+              </div>
+            </div>
+            <div class="item">
+              <img src="img/sample/what.jpeg" />
+              <div class="description">
+                <h1>Aa사랑스러워한국어 FlipFont</h1>
+                <div class="category">폰꾸미기/런쳐</div>
+                <div class="star">&#9733;&#9733;</div>
+                <div class="price">5,000원</div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+
+
+
+
+  </div>
+  <script>
+    const loginButton = document.getElementById('login');
+    const searchButton = document.getElementById('search');
+    searchButton.addEventListener('click', (e) => {
+      console.log(e.target);
+    })
+
+    const sideMenu = document.getElementById('side_menu');
+
+    const sideExitButton = document.getElementById('side_exit');
+    sideExitButton.addEventListener('click', (e) => {
+      sideMenu.style.width = '0';
+    });
+
+    const menuButton = document.getElementById('hamburger');
+    menuButton.addEventListener('click', (e) => {
+      sideMenu.style.width = '250px';
+    });
+
+    document.getElementsByClassName("slide")[0].style.display = 'block';
+
+  </script>
+</body>
+</html>
